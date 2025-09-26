@@ -1,9 +1,9 @@
-from stats import charachter_dictionary
+from stats import report
 
 
 def main():
     file_path = "./books/frankenstein.txt"
-    charachter_dictionary(file_path)
+    report(file_path)
 
 
 
