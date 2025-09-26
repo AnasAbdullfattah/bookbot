@@ -1,0 +1,6 @@
+{
+    "javascript.suggest.enabled": "false",
+    "typescript.suggest.enabled": "false",
+    "editor.quickSuggestions": "{ \"other\": false, \"comments\": false, \"strings\": false }",
+    "editor.inlineSuggest.enabled": false // This disables GitHub Copilot inline suggestions
+}

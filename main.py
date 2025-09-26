@@ -1,9 +1,9 @@
-from stats import get_num_words
+from stats import charachter_dictionary
 
 
 def main():
     file_path = "./books/frankenstein.txt"
-    get_num_words(file_path)
+    charachter_dictionary(file_path)
 
 
 
