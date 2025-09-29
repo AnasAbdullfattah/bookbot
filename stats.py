@@ -1,3 +1,8 @@
+# def split_txt(file_path):
+#     with open(file_path, "r") as the_book:
+#         file_contents = the_book.read().lower()
+#         words_of_book = file_contents.split()
+#         return words_of_book
 def get_num_words(file_path):
     with open(file_path, "r") as the_book:
         file_contents = the_book.read()
@@ -12,11 +17,6 @@ def return_txt(file_path):
         file_contents = the_book.read().lower()
         return file_contents
     
-# def split_txt(file_path):
-    with open(file_path, "r") as the_book:
-        file_contents = the_book.read().lower()
-        words_of_book = file_contents.split()
-        return words_of_book
 
 
 def charachter_dictionary(file_path):
@@ -32,23 +32,41 @@ def charachter_dictionary(file_path):
     return dictionary
 
 
+def get_num(item_dict):
+    return item_dict["num"]
+
+
+def get_sorted_char_counts(char_counts_dict):
+  
+    # 1. Create the list of dictionaries
+    sorted_list = []
+    for char, count in char_counts_dict.items():
+        sorted_list.append({"char": char, "num": count})
+    sorted_list.sort(key=get_num, reverse=True)
+    
+    return sorted_list
+
+
+
+
+
+
+
+
+
+
 
 def report(file_path):
     print("============ BOOKBOT ============")
-    print("Analyzing book found at books/frankenstein.txt...")
+    print(f"Analyzing book found at {file_path}...")
     print("----------- Word Count ----------")
-    char_num = get_num_words(file_path)
-    print(f"Found {char_num} total words")
+    word_num = get_num_words(file_path)
+    print(f"Found {word_num} total words")
     print("--------- Character Count -------")
     the_dictionary = charachter_dictionary(file_path)
-    # myKeys = list(the_dictionary.keys())
-    # myKeys.sort()
-    # sdicrionery = {i: the_dictionary[i] for i in myKeys}
-
-    sorted_items_desc = sorted(the_dictionary.items(), key=lambda item: item[1], reverse=True)
-    sorted_dict_desc = dict(sorted_items_desc)
-    print(sorted_dict_desc)
+    the_list = get_sorted_char_counts(the_dictionary)
+    for item in the_list:
+        print(f"{item['char']}: {item['num']}")
     print("============= END ===============")
     return 0
-
     
